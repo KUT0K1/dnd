@@ -1,0 +1,75 @@
+<svg width="900" height="900" viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- sanfter Mondglanz -->
+    <radialGradient id="moonGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#A8C3E4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#A8C3E4" stop-opacity="0.05"/>
+    </radialGradient>
+
+    <!-- Glüheffekt für Sterne -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Halbmond (hellblauer Silberton #A8C3E4) -->
+  <path d="M450,120
+           A320,320 0 1,0 450,780
+           A250,320 0 1,1 450,120 Z"
+        fill="url(#moonGlow)" stroke="#A8C3E4" stroke-width="3"/>
+
+  <!-- Name entlang der inneren Sichel -->
+  <path id="namePath" d="M220,460 A250,250 0 0,1 680,460" fill="none"/>
+  <text font-family="serif" font-size="30" fill="#A8C3E4">
+    <textPath href="#namePath" startOffset="3%">Elara Silberschein</textPath>
+  </text>
+
+  <!-- Runenring (graviert) -->
+  <circle cx="450" cy="450" r="360" fill="none" stroke="#C5D4ED" stroke-width="1.2" opacity="0.7"
+          stroke-dasharray="2,8"/>
+  <!-- Runen-Text auf Kreis -->
+  <path id="runesPath" d="M450,450 m-360,0 a360,360 0 1,0 720,0 a360,360 0 1,0 -720,0" fill="none"/>
+  <text font-family="serif" font-size="18" fill="#9FB6E0" letter-spacing="6">
+    <!-- Unicode-Runen – wirken wie Gravur; je nach System-Font kann die Darstellung variieren -->
+    <textPath href="#runesPath" startOffset="2%">
+      ᚹ ᚨ ᚾ ᛞ ᛖ ᛚ • ᛋ ᚢ ᛏ ᛟ ᚲ • ᛚ ᛁ ᚷ ᚺ ᛏ • ᛖ ᚹ ᛁ ᛏ ᚨ ᛏ • ᚾ ᚨ ᛏ ᚢ ᚱ
+    </textPath>
+  </text>
+
+  <!-- kräftiger Sternenschweif vom rechten Horn des Mondes -->
+  <g filter="url(#softGlow)">
+    <!-- Kurve des Schweifs -->
+    <path d="M710,330 C780,360 820,390 840,430 C860,470 820,520 760,540"
+          fill="none" stroke="#A8C3E4" stroke-width="1.2" opacity="0.35"/>
+
+    <!-- Glitzerpunkte -->
+    <g fill="#A8C3E4">
+      <circle cx="720" cy="335" r="2.8" opacity="0.95"/>
+      <circle cx="742" cy="348" r="2.2" opacity="0.9"/>
+      <circle cx="768" cy="365" r="3.0" opacity="0.95"/>
+      <circle cx="791" cy="387" r="2.1" opacity="0.85"/>
+      <circle cx="812" cy="408" r="2.6" opacity="0.9"/>
+      <circle cx="830" cy="432" r="3.2" opacity="0.95"/>
+      <circle cx="820" cy="460" r="2.4" opacity="0.85"/>
+      <circle cx="798" cy="488" r="2.0" opacity="0.8"/>
+      <circle cx="770" cy="515" r="2.6" opacity="0.88"/>
+      <circle cx="740" cy="535" r="2.2" opacity="0.8"/>
+    </g>
+
+    <!-- kleine Funkelsterne (4-spitz) -->
+    <g fill="#A8C3E4" opacity="0.95">
+      <polygon points="735,345 739,355 749,359 739,363 735,373 731,363 721,359 731,355"/>
+      <polygon points="805,420 809,430 819,434 809,438 805,448 801,438 791,434 801,430"/>
+      <polygon points="775,500 779,510 789,514 779,518 775,528 771,518 761,514 771,510"/>
+    </g>
+  </g>
+
+  <!-- dezenter innerer Glanzrand -->
+  <circle cx="450" cy="450" r="275" fill="none" stroke="#A8C3E4" stroke-width="0.8" opacity="0.25"/>
+
+</svg>
